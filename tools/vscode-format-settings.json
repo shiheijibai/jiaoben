@@ -1,0 +1,12 @@
+{
+    "clang-format.executable": "/home/shjb/work/Project/jiaoben/tools/clang-format",
+    "clang-format.style": "file:/home/shjb/work/Project/jiaoben/tools/clang-format.yaml",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": false
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": false
+    }
+}

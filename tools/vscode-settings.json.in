@@ -1,0 +1,28 @@
+{
+    "clangd.path": "@OPENHARMONY_CODE_PATH@/prebuilts/clang/ohos/linux-x86_64/llvm/bin/clangd",
+    "clangd.arguments": [
+        "--compile-commands-dir=@CLANGD_DATA_PATH@",
+        "--query-driver=@OPENHARMONY_CODE_PATH@/prebuilts/clang/ohos/linux-x86_64/llvm/bin/clang",
+        "--enable-config",
+        "--header-insertion=never",
+        "--malloc-trim",
+        "--pch-storage=disk"
+    ],
+    "clang-format.executable": "/home/shjb/work/Project/jiaoben/tools/clang-format",
+    "clang-format.style": "file:/home/shjb/work/Project/jiaoben/tools/clang-format.yaml",
+    "gnformat.paths.gn": "@OPENHARMONY_CODE_PATH@/prebuilts/build-tools/linux-x86/bin/gn",
+    "gnformat.paths.buildtools": "@OPENHARMONY_CODE_PATH@/prebuilts/build-tools/linux-x86/bin",
+    "files.watcherExclude": {
+        "**/.repo/**": true,
+        "**/out/**": true,
+        "**/prebuilts/**": true
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": false
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": false
+    }
+}

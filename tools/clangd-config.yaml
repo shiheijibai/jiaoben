@@ -1,0 +1,22 @@
+# 由入口 down.sh 生成。测试目录规则使用明确的目录名进行匹配，
+# 避免误伤名称中仅仅包含 "test" 的业务目录，
+# 例如 attest 和 attestation 仍然会参与索引。
+If:
+  PathMatch:
+    # 通用测试目录和单元测试目录。
+    - '(^|.*/)(test|tests|testing|testcase|testcases|test_case|test_cases|testfwk|unittest|unittests|unit_test|unit_tests)(/.*)?$'
+    # 系统测试、模块测试、集成测试和功能测试目录。
+    - '(^|.*/)(systemtest|systemtests|system_test|system_tests|moduletest|moduletests|module_test|module_tests|integrationtest|integrationtests|integration_test|integration_tests|functionaltest|functionaltests|functional_test|functional_tests)(/.*)?$'
+    # 模糊测试目录和测试框架目录。
+    - '(^|.*/)(fuzz|fuzzer|fuzzers|fuzztest|fuzztests|fuzz_test|fuzz_tests|gtest|gtests|googletest|googlemock|libc-test)(/.*)?$'
+    # 当前 OpenHarmony 编译数据库中发现的其他明确测试目录。
+    - '(^|.*/)(safuzz|native_module_systemtest|graphic_test|graphic_test_framework|irtoc_tests|sandbox_test_common|test_runner|test_example|filterfuzz|hostapd_test|wpa_test)(/.*)?$'
+Index:
+  Background: Skip
+---
+# 顶层 out 目录保存可重新生成的编译产物，因此跳过其后台索引。
+# 这里只匹配项目根目录下的 out，其他位置名为 out 的源码目录仍然参与索引。
+If:
+  PathMatch: '^out(/.*)?$'
+Index:
+  Background: Skip
